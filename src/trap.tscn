@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb4t3tx30kea0"]
+
+[ext_resource type="Script" path="res://scripts/building_scripts/Trap.gd" id="1_wkg7p"]
+[ext_resource type="PackedScene" uid="uid://dnha8oa57vxae" path="res://models/Resource Models/Tesla/TeslaCoil.glb" id="2_btlxp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_osaqg"]
+size = Vector3(1.8, 2.5, 1.8)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_wkg7p")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="TeslaCoil" parent="Area3D" instance=ExtResource("2_btlxp")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.557311, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.44597, 0, 0, 0, 0.9, 0, 0, 0, 1.40928, 0, 1.23843, 0)
+shape = SubResource("BoxShape3D_osaqg")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

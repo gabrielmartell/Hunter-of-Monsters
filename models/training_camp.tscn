@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ouiqdvceje8i"]
+
+[ext_resource type="ArrayMesh" uid="uid://duv2mfeyj2x6" path="res://models/Resource Models/TrainingCamp/barracks.obj" id="1_utsoa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rfshh"]
+size = Vector3(6.5, 6, 10.5)
+
+[node name="TrainingCamp" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40202, -0.776921)
+shape = SubResource("BoxShape3D_rfshh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("1_utsoa")

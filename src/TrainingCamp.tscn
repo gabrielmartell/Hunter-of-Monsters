@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyixfl2i3pq57"]
+
+[ext_resource type="PackedScene" uid="uid://cjhnfqy57pk6u" path="res://src/buildingGeneral.tscn" id="1_r826c"]
+[ext_resource type="Script" path="res://scripts/building_scripts/TrainingCamp.gd" id="2_utcka"]
+[ext_resource type="ArrayMesh" uid="uid://gqsnp4syxwhr" path="res://models/Resource Models/TrainingCamp/barracks.obj" id="2_v851i"]
+[ext_resource type="Shader" path="res://shaders/healthbar.gdshader" id="4_2ulr0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ukcb"]
+size = Vector3(6.5, 6, 10.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s2rhu"]
+render_priority = 0
+shader = ExtResource("4_2ulr0")
+shader_parameter/full_color = Color(0, 1, 0, 1)
+shader_parameter/empty_color = Color(1, 0, 0, 1)
+shader_parameter/percentage = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_sfrim"]
+material = SubResource("ShaderMaterial_s2rhu")
+size = Vector3(1, 0.2, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_chcpe"]
+render_priority = 0
+shader = ExtResource("4_2ulr0")
+shader_parameter/full_color = Color(0, 1, 0, 1)
+shader_parameter/empty_color = Color(1, 0, 0, 1)
+shader_parameter/percentage = 0.5
+
+[node name="Node3D" node_paths=PackedStringArray("healthbar") groups=["buildings"] instance=ExtResource("1_r826c")]
+script = ExtResource("2_utcka")
+healthbar = NodePath("Healthbar")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40202, -0.776921)
+shape = SubResource("BoxShape3D_8ukcb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" index="1"]
+mesh = ExtResource("2_v851i")
+
+[node name="Healthbar" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, 0, 6.12501, 0)
+top_level = true
+cast_shadow = 0
+mesh = SubResource("BoxMesh_sfrim")
+surface_material_override/0 = SubResource("ShaderMaterial_chcpe")

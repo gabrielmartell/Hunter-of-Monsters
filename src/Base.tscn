@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgl4cwmoaesk6"]
+
+[ext_resource type="Script" path="res://scripts/building_scripts/Base.gd" id="1_xk5ia"]
+[ext_resource type="PackedScene" uid="uid://bqyp5318quvsv" path="res://models/Resource Models/Base/scene.gltf" id="2_43crd"]
+[ext_resource type="Shader" path="res://shaders/healthbar.gdshader" id="3_a1ajs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f62cy"]
+size = Vector3(17, 5, 12)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4jl2"]
+render_priority = 0
+shader = ExtResource("3_a1ajs")
+shader_parameter/full_color = Color(0, 1, 0, 1)
+shader_parameter/empty_color = Color(1, 0, 0, 1)
+shader_parameter/percentage = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_ju3wy"]
+material = SubResource("ShaderMaterial_a4jl2")
+size = Vector3(1, 0.2, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hikq"]
+render_priority = 0
+shader = ExtResource("3_a1ajs")
+shader_parameter/full_color = Color(0, 1, 0, 1)
+shader_parameter/empty_color = Color(1, 0, 0, 1)
+shader_parameter/percentage = 0.5
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("healthbar") groups=["buildings"]]
+script = ExtResource("1_xk5ia")
+healthbar = NodePath("Healthbar")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("2_43crd")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.172865, 1.54426, 0)
+shape = SubResource("BoxShape3D_f62cy")
+
+[node name="Healthbar" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 1, 0, 5.54932, 0)
+top_level = true
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ju3wy")
+surface_material_override/0 = SubResource("ShaderMaterial_1hikq")

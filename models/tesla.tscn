@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://jxucvhpwwdur"]
+
+[ext_resource type="PackedScene" uid="uid://dfyxcljm6w4y5" path="res://models/Resource Models/Tesla/TeslaCoil.glb" id="1_vfn18"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8x1rl"]
+size = Vector3(1.8, 2.5, 1.8)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="TeslaCoil" parent="StaticBody3D" instance=ExtResource("1_vfn18")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.557311, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23843, 0)
+shape = SubResource("BoxShape3D_8x1rl")

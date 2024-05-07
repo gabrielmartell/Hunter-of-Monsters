@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjhnfqy57pk6u"]
+
+[ext_resource type="Script" path="res://scripts/building_scripts/BuildingGeneral.gd" id="1_bihb1"]
+
+[node name="GeneralBuilding" type="Node3D"]
+script = ExtResource("1_bihb1")

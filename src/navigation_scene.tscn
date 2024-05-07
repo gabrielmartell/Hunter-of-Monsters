@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp0kbw5lcoi6y"]
+
+[ext_resource type="Script" path="res://scripts/NavigationRegion3D.gd" id="1_t071d"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_2dsov"]
+vertices = PackedVector3Array(-24, 1, -24, -24, 1, 24, 24, 1, 24, 24, 1, -24)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_height = 2.0
+agent_radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqwjc"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hxpqn"]
+material = SubResource("StandardMaterial3D_dqwjc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_smgmd"]
+size = Vector3(50, 1, 50)
+
+[node name="navigation_scene" type="Node3D"]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_2dsov")
+script = ExtResource("1_t071d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("BoxMesh_hxpqn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_smgmd")

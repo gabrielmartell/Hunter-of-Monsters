@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://caf37sjukvan0"]
+
+[ext_resource type="ArrayMesh" uid="uid://43ni8cvbmjot" path="res://models/Resource Models/TrainingCamp/barracks.obj" id="1_dxrgx"]
+[ext_resource type="Script" path="res://scripts/building_scripts/BuildingHover.gd" id="1_pv1im"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rfshh"]
+size = Vector3(6.5, 6, 10.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ntbhe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwb47"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0.109804, 1)
+metallic_specular = 1.0
+emission = Color(0.219608, 0.380392, 0, 1)
+emission_energy_multiplier = 1.7
+disable_receive_shadows = true
+
+[node name="Building" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_pv1im")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40202, -0.776921)
+shape = SubResource("BoxShape3D_rfshh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = ExtResource("1_dxrgx")
+skeleton = NodePath("")
+
+[node name="Boundary" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(15.0175, 0, 0, 0, 15.0175, 0, 0, 0, 15.0175, 0, 0, -0.35359)
+mesh = SubResource("SphereMesh_ntbhe")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vwb47")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]

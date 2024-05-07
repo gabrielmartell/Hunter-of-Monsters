@@ -1,0 +1,330 @@
+[gd_scene load_steps=12 format=3 uid="uid://c1mm381i2ly6x"]
+
+[ext_resource type="Texture2D" uid="uid://d221atnugk7tp" path="res://Icons/frames.png" id="1_oskho"]
+[ext_resource type="Texture2D" uid="uid://imwdjqs4lbdy" path="res://Icons/Bone_Icon.png" id="1_rbt2k"]
+[ext_resource type="Texture2D" uid="uid://cdqqa3f5h0qak" path="res://Icons/Corn_Icon.png" id="2_dyhof"]
+[ext_resource type="Texture2D" uid="uid://ddidcm57eofub" path="res://Icons/Ore_Icon.png" id="3_kbe3y"]
+[ext_resource type="Texture2D" uid="uid://rs76rcdst4pc" path="res://Icons/hunter.png" id="5_ld076"]
+[ext_resource type="Texture2D" uid="uid://cdixsaerw0eud" path="res://Icons/GRU.png" id="6_us0kc"]
+[ext_resource type="Texture2D" uid="uid://b404pshhk4t0d" path="res://Icons/camp.png" id="7_8iiqn"]
+[ext_resource type="Texture2D" uid="uid://c0o2ygqwefyqd" path="res://Icons/base.png" id="8_lqf02"]
+[ext_resource type="Texture2D" uid="uid://bhdaxmebiu5on" path="res://Icons/trap.png" id="9_xm0cy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w80sw"]
+font_size = 80
+font_color = Color(0.764706, 0, 0.227451, 1)
+shadow_size = 60
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vftfg"]
+font_size = 80
+font_color = Color(0, 1, 0.160784, 1)
+outline_size = 60
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Node2D"]
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 1593.0
+offset_bottom = 893.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_w80sw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameWinLabel" type="Label" parent="."]
+visible = false
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 1593.0
+offset_bottom = 893.0
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_vftfg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Frames6" type="Sprite2D" parent="."]
+position = Vector2(1591.48, 453)
+rotation = 1.5708
+scale = Vector2(3.5984, 0.0676184)
+texture = ExtResource("1_oskho")
+
+[node name="Frames4" type="Sprite2D" parent="."]
+position = Vector2(574, 891.464)
+scale = Vector2(4.59201, 0.067712)
+texture = ExtResource("1_oskho")
+
+[node name="Frames3" type="Sprite2D" parent="."]
+position = Vector2(1342, 682.5)
+scale = Vector2(2.064, 1.74)
+texture = ExtResource("1_oskho")
+
+[node name="Frames2" type="Sprite2D" parent="."]
+position = Vector2(573.999, 6.536)
+scale = Vector2(4.59201, 0.051712)
+texture = ExtResource("1_oskho")
+
+[node name="Frames" type="Sprite2D" parent="."]
+position = Vector2(1349, 46)
+scale = Vector2(2.004, 0.368)
+texture = ExtResource("1_oskho")
+
+[node name="BoneTexture" type="TextureRect" parent="."]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1456.0
+offset_top = -9.0
+offset_right = 1856.0
+offset_bottom = 591.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_rbt2k")
+
+[node name="BoneLabel" type="RichTextLabel" parent="BoneTexture"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 250.0
+offset_right = 875.0
+offset_bottom = 405.0
+theme_override_font_sizes/normal_font_size = 100
+text = "0"
+fit_content = true
+
+[node name="FoodTexture" type="TextureRect" parent="."]
+offset_left = 1296.0
+offset_top = -9.0
+offset_right = 1696.0
+offset_bottom = 591.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dyhof")
+
+[node name="FoodLabel" type="RichTextLabel" parent="FoodTexture"]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 250.0
+offset_right = 845.0
+offset_bottom = 405.0
+theme_override_font_sizes/normal_font_size = 100
+text = "0"
+fit_content = true
+
+[node name="OreTexture" type="TextureRect" parent="."]
+offset_left = 1120.0
+offset_top = -9.0
+offset_right = 1520.0
+offset_bottom = 591.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_kbe3y")
+
+[node name="OreLabel" type="RichTextLabel" parent="OreTexture"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 250.0
+offset_right = 855.0
+offset_bottom = 405.0
+theme_override_font_sizes/normal_font_size = 100
+text = "0"
+fit_content = true
+
+[node name="Hunter" type="TextureRect" parent="."]
+offset_left = 1322.0
+offset_top = 503.0
+offset_right = 131322.0
+offset_bottom = 128503.0
+scale = Vector2(0.001, 0.001)
+texture = ExtResource("5_ld076")
+
+[node name="GRU" type="TextureRect" parent="."]
+offset_left = 1164.0
+offset_top = 520.0
+offset_right = 2224.0
+offset_bottom = 1595.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_us0kc")
+
+[node name="Units_Label" type="RichTextLabel" parent="."]
+offset_left = 1112.0
+offset_top = 485.0
+offset_right = 1255.0
+offset_bottom = 539.0
+text = "Units"
+
+[node name="KeyLabel" type="RichTextLabel" parent="."]
+offset_left = 1120.0
+offset_top = 618.0
+offset_right = 1463.0
+offset_bottom = 672.0
+text = "Key:  			  G									   H"
+
+[node name="Buildings_Label" type="RichTextLabel" parent="."]
+offset_left = 1111.0
+offset_top = 697.0
+offset_right = 1254.0
+offset_bottom = 751.0
+text = "Buildings"
+
+[node name="Camp" type="TextureRect" parent="."]
+offset_left = 1140.0
+offset_top = 737.0
+offset_right = 1254.0
+offset_bottom = 809.0
+texture = ExtResource("7_8iiqn")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1293.0
+offset_top = 741.0
+offset_right = 1407.0
+offset_bottom = 850.0
+texture = ExtResource("8_lqf02")
+expand_mode = 1
+
+[node name="KeyLabel2" type="RichTextLabel" parent="."]
+offset_left = 1120.0
+offset_top = 811.0
+offset_right = 1648.0
+offset_bottom = 865.0
+text = "Key:  	     C									  B								T"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 1452.0
+offset_top = 738.0
+offset_right = 1529.0
+offset_bottom = 810.0
+texture = ExtResource("9_xm0cy")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 1114.0
+offset_top = 639.0
+offset_right = 1608.0
+offset_bottom = 679.0
+text = "Cost:			5		2								3		5"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 1114.0
+offset_top = 830.0
+offset_right = 1697.0
+offset_bottom = 870.0
+text = "Cost:	   7     2						    7	   5						  5	 2"
+
+[node name="OreTexture2" type="TextureRect" parent="."]
+offset_left = 1395.0
+offset_top = 613.0
+offset_right = 1615.0
+offset_bottom = 980.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_kbe3y")
+expand_mode = 4
+
+[node name="BoneTexture2" type="TextureRect" parent="."]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1370.0
+offset_top = 630.0
+offset_right = 1490.0
+offset_bottom = 818.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_rbt2k")
+expand_mode = 4
+
+[node name="FoodTexture2" type="TextureRect" parent="."]
+offset_left = 1205.0
+offset_top = 641.0
+offset_right = 1315.0
+offset_bottom = 751.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dyhof")
+expand_mode = 4
+
+[node name="BoneTexture3" type="TextureRect" parent="."]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1234.0
+offset_top = 629.0
+offset_right = 1359.0
+offset_bottom = 824.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_rbt2k")
+expand_mode = 4
+
+[node name="FoodTexture3" type="TextureRect" parent="."]
+offset_left = 1338.0
+offset_top = 833.0
+offset_right = 1438.0
+offset_bottom = 943.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dyhof")
+expand_mode = 4
+
+[node name="OreTexture3" type="TextureRect" parent="."]
+offset_left = 1174.0
+offset_top = 809.0
+offset_right = 1369.0
+offset_bottom = 1134.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_kbe3y")
+expand_mode = 4
+
+[node name="BoneTexture4" type="TextureRect" parent="."]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1210.0
+offset_top = 820.0
+offset_right = 1335.0
+offset_bottom = 1015.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_rbt2k")
+expand_mode = 4
+
+[node name="BoneTexture5" type="TextureRect" parent="."]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1365.0
+offset_top = 826.0
+offset_right = 1465.0
+offset_bottom = 986.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_rbt2k")
+expand_mode = 4
+
+[node name="OreTexture4" type="TextureRect" parent="."]
+offset_left = 1471.0
+offset_top = 810.0
+offset_right = 1661.0
+offset_bottom = 1127.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_kbe3y")
+expand_mode = 4
+
+[node name="FoodTexture4" type="TextureRect" parent="."]
+offset_left = 1509.0
+offset_top = 832.0
+offset_right = 1619.0
+offset_bottom = 942.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_dyhof")
+expand_mode = 4
+
+[node name="Frames5" type="Sprite2D" parent="."]
+position = Vector2(5.34592, 449.8)
+rotation = 1.5708
+scale = Vector2(3.5984, 0.0421913)
+texture = ExtResource("1_oskho")

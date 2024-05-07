@@ -1,0 +1,1 @@
+Important to note that models should be given materials and textures.
